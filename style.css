@@ -19,28 +19,44 @@ body {
 }
 
 .main-container {
-    background-color: antiquewhite;
+    background-color: #faebd7;
     display: flex;
     align-self: center;
     flex-direction: column;
     width: 550px;
     height: 750px;
     border: 1px solid black;
-
+    border-radius: 10px;
 }
 
 .screen {
     background-color: #F5F6F4;
-    margin: 15px;
+    margin: 30px;
+    margin-bottom: 0px;
     padding: 50px;
     border: 1px solid black;
+    border-radius: 10px;
 }
 
 .button-container {
-    background-color: #F5F6F4;
-    margin: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
     height: 100%;
+
+}
+
+btn {
+    background-color: #F5F6F4;
+    font-size: 30px;
+    margin: 5px;
+    width: 112px;
+    height: 98px;
     border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer {
@@ -54,4 +70,8 @@ body {
 a {
     text-decoration: none;
     color: black;
+}
+
+#equals {
+    width: 234px;
 }
