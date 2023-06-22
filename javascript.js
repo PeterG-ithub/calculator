@@ -41,6 +41,12 @@ function mainControl(btnInput) {
         case 'zero':
             generateNumber(0);
             break;
+        case 'AC':
+            resetCalculator();
+            break;
+        case 'C':
+            deletePrevNum();
+            break;
     }
 }
 
@@ -49,5 +55,17 @@ function generateNumber(number) {
         screenText.textContent = number;
     } else {
         screenText.textContent += number;
+    }
+}
+
+function resetCalculator() {
+    screenText.textContent = '0';
+}
+
+function deletePrevNum() {
+    if (screenText.textContent.length < 2) {
+        resetCalculator();
+    } else {
+        screenText.textContent = screenText.textContent.slice(0,-1);
     }
 }
