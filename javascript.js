@@ -45,7 +45,22 @@ function mainControl(btnInput) {
             resetCalculator();
             break;
         case 'C':
-            deletePrevNum();
+            deletePrevChar();
+            break;
+        case 'add':
+            generateOperator('+');
+            break;
+        case 'subtract':
+            generateOperator('-');
+            break;
+        case 'multiply':
+            generateOperator('*');
+            break;
+        case 'divide':
+            generateOperator('/');
+            break;
+        case 'dot':
+            generateOperator('.');
             break;
     }
 }
@@ -58,14 +73,34 @@ function generateNumber(number) {
     }
 }
 
+function generateOperator(operator) {
+    let operators = ['+', '-', '*', '/'];
+    let lastChar = screenText.textContent.slice(-1)
+    console.log(lastChar);
+    //check if last character in textContent is operator
+    if(operators.includes(lastChar) ) { 
+        deletePrevChar();       
+        screenText.textContent += operator;
+    } else if(operators.some(operator=>
+        screenText.textContent.includes(operator))) {
+        operate();
+    } else {
+        screenText.textContent += operator;
+    }
+}
+
 function resetCalculator() {
     screenText.textContent = '0';
 }
 
-function deletePrevNum() {
+function deletePrevChar() {
     if (screenText.textContent.length < 2) {
         resetCalculator();
     } else {
         screenText.textContent = screenText.textContent.slice(0,-1);
     }
+}
+
+function operate() {
+
 }
