@@ -86,7 +86,7 @@ btn:hover {
 }
 
 
-.screen-answer, .screen-text {
+.screen-answer, .screen-input {
     display: flex;
     justify-content: flex-end;
 }

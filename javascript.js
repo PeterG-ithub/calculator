@@ -1,4 +1,4 @@
-const screenText = document.querySelector('.screen-text');
+const screenInput = document.querySelector('.screen-input');
 const buttons = document.querySelectorAll('btn');
 
 
@@ -66,41 +66,45 @@ function mainControl(btnInput) {
 }
 
 function generateNumber(number) {
-    if(screenText.textContent == '0') {
-        screenText.textContent = number;
+    if(screenInput.textContent == '0') {
+        screenInput.textContent = number;
     } else {
-        screenText.textContent += number;
+        screenInput.textContent += number;
     }
 }
 
 function generateOperator(operator) {
     let operators = ['+', '-', '*', '/'];
-    let lastChar = screenText.textContent.slice(-1)
+    let lastChar = screenInput.textContent.slice(-1)
     console.log(lastChar);
     //check if last character in textContent is operator
     if(operators.includes(lastChar) ) { 
         deletePrevChar();       
-        screenText.textContent += operator;
+        screenInput.textContent += operator;
     } else if(operators.some(operator=>
-        screenText.textContent.includes(operator))) {
+        screenInput.textContent.includes(operator))) {
         operate();
     } else {
-        screenText.textContent += operator;
+        screenInput.textContent += operator;
     }
 }
 
 function resetCalculator() {
-    screenText.textContent = '0';
+    screenInput.textContent = '0';
 }
 
 function deletePrevChar() {
-    if (screenText.textContent.length < 2) {
+    if (screenInput.textContent.length < 2) {
         resetCalculator();
     } else {
-        screenText.textContent = screenText.textContent.slice(0,-1);
+        screenInput.textContent = screenInput.textContent.slice(0,-1);
     }
 }
 
 function operate() {
+    
+}
 
+function readInput() { //return the text in the screen-input
+    return screenInput.textContent;
 }
