@@ -82,13 +82,15 @@ function generateOperator(operator) {
     let operators = ['+', '-', '*', '/'];
     let lastChar = screenInput.textContent.slice(-1)
     console.log(lastChar);
-    //check if last character in textContent is operator
-    if(operators.includes(lastChar) ) { 
+    if(operators.includes(lastChar) ) { //check if last character in textContent 
+                                        //is operator
         deletePrevChar();       
         screenInput.textContent += operator;
-    } else if(operators.some(operator=>
-        screenInput.textContent.includes(operator))) {
-        operate();
+    } else if(screenAnswer.textContent != '') {//check if theres already answer
+        const strArr = screenAnswer.textContent.split(' ');
+        screenInput.textContent = strArr[2]; 
+        screenInput.textContent += operator;
+        screenAnswer.textContent = '';
     } else {
         screenInput.textContent += operator;
     }
