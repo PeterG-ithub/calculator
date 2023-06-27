@@ -72,18 +72,21 @@ btn:hover {
     border-radius: 10px;
 }
 
-.screen {
+.screen-container {
     background-color: #F5F6F4;
     margin: 30px;
     margin-bottom: 0px;
     height: 250px;
     border: 1px solid black;
     border-radius: 10px;
-}
-
-.screen-text {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     font-size: 40px;
     padding: 10px;
+}
+
+
+.screen-answer, .screen-text {
+    display: flex;
+    justify-content: flex-end;
 }
