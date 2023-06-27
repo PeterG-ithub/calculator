@@ -71,6 +71,7 @@ function mainControl(btnInput) {
 }
 
 function generateNumber(number) {
+    resetAnswer();
     if(screenInput.textContent == '0') {
         screenInput.textContent = number;
     } else {
@@ -98,6 +99,11 @@ function generateOperator(operator) {
 
 function resetCalculator() {
     screenInput.textContent = '0';
+    resetAnswer();
+}
+
+function resetAnswer() {
+    screenAnswer.textContent = '';
 }
 
 function deletePrevChar() {
