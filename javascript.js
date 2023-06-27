@@ -1,4 +1,5 @@
 const screenInput = document.querySelector('.screen-input');
+const screenAnswer = document.querySelector('.screen-answer');
 const buttons = document.querySelectorAll('btn');
 
 
@@ -62,7 +63,11 @@ function mainControl(btnInput) {
         case 'dot':
             generateOperator('.');
             break;
+        case 'equals':
+            operate();
+            break;
     }
+
 }
 
 function generateNumber(number) {
@@ -102,9 +107,40 @@ function deletePrevChar() {
 }
 
 function operate() {
-    
+    let result = '';
+    if (readInput().search(/\+/) > 0) {
+        const numbers = readInput().split('+');
+        result = add(numbers[0], numbers[1]);
+    } else if (readInput().search(/\-/) > 0) {
+        const numbers = readInput().split('-');
+        result = subtract(numbers[0], numbers[1]);
+    } else if (readInput().search(/\*/) > 0) {
+        const numbers = readInput().split('*');
+        result = multiply(numbers[0], numbers[1]);
+    } else if (readInput().search(/\//) > 0) {
+        const numbers = readInput().split('/');
+        result = divide(numbers[0], numbers[1]);
+    }
+    screenAnswer.textContent = 'ans = ' + result;
+    screenInput.textContent = '';
 }
 
 function readInput() { //return the text in the screen-input
     return screenInput.textContent;
+}
+
+function add(num1, num2) {
+    return Number(num1) + Number(num2);
+}
+
+function subtract(num1, num2) {
+    return Number(num1) - Number(num2)
+}
+
+function multiply(num1, num2) {
+    return Number(num1) * Number(num2)
+}
+
+function divide(num1, num2) {
+    return Number(num1) / Number(num2)
 }
