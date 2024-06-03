@@ -7,10 +7,10 @@ To run this project locally, follow these steps:
 
 1. Clone the repository to your local machine using the following command:
    ```sh
-   git clone git@github.com:PeterG-ithub/mini-projects.git
+   git@github.com:PeterG-ithub/calculator.git
 2. Navigate to the project directory:
     ```sh
-   cd mini-projects
+   cd calculator
 3. Open the `index.html` file in your web browser.
 
 ## Technologies Used
